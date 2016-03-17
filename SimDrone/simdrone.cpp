@@ -1,4 +1,6 @@
 #include "simdrone.h"
+#include "checksum.h"
+#include "dataHandle.h"
 #include "ui_simdrone.h"
 #include "messageIDDefine.h"
 
@@ -60,24 +62,57 @@ void simDrone::updateClientDetail() {
  * send the heartbeat message to the app
  */
 void simDrone::send_heartbeat_msg() {
-    quint8 chk[2];
-    quint16 checksum;
-    quint8 payload[64];
-    quint8 dataToSend[64];
 
-    dataToSend[0] = DATALINK_STX1;
-    dataToSend[1] = DATALINK_STX2;
-    dataToSend[3] = 0x00;
-    dataToSend[4] = UAV_SYS_ID;
-    dataToSend[5] = UAV_COMP_ID_FCC;
-    dataToSend[6] = UAV_MSG_FCC_HEARTBEAT;
+    quint16 checksum;
+    quint8 payload[50];
+    quint8 dataToSend[64];
+    quint8 length = 54, index;
 
     /*
     * get the uav flight heartbeat message.
     */
     getHeartBeatMessage();
 
-    clientConn->write((const char*)dataToSend, 20);
+    frame_push_uint8_t(payload, 0, flightHBData.uasInfo);
+    frame_push_uint8_t(payload, 1, flightHBData.ctrlMode);
+    frame_push_uint8_t(payload, 2, flightHBData.uasState);
+    frame_push_uint8_t(payload, 3, flightHBData.plMode);
+
+    frame_push_double(payload, 4, flightHBData.lon);
+    frame_push_double(payload, 12, flightHBData.lat);
+    frame_push_float(payload, 20, flightHBData.alt);
+
+    frame_push_float(payload, 24, flightHBData.vd);
+    frame_push_float(payload, 28, flightHBData.track);
+    frame_push_float(payload, 32, flightHBData.Hdot);
+    frame_push_float(payload, 36, flightHBData.psi);
+    frame_push_float(payload, 40, flightHBData.cpuRatio);
+    frame_push_float(payload, 44, flightHBData.voltCell);
+    frame_push_float(payload, 48, flightHBData.oilEng);
+
+    frame_push_uint16_t(payload, 52, flightHBData.flyTime);
+
+    for(index = 7; index<61; index++)
+        dataToSend[index] = payload[index-7];
+
+    dataToSend[0] = DATALINK_STX1;
+    dataToSend[1] = DATALINK_STX2;
+    dataToSend[2] = length;
+    dataToSend[3] = 0x00;
+    dataToSend[4] = UAV_SYS_ID;
+    dataToSend[5] = UAV_COMP_ID_FCC;
+    dataToSend[6] = UAV_MSG_FCC_HEARTBEAT;
+
+    checksum = crc_calculate((const quint8*)&dataToSend[2], length+5);
+
+    dataToSend[length+7] = (quint8)(checksum&0xff);
+    dataToSend[length+8] = (quint8)(checksum >> 8);
+
+    qDebug() << "Check Sum:" << dataToSend[length+7]
+             << "And:" << dataToSend[length+8];
+
+    clientConn->write((const char*)dataToSend, length+9);
+
 }
 
 void simDrone::getHeartBeatMessage() {
