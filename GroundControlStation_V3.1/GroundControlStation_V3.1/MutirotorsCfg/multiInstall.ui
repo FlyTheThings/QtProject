@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>multiInstallDialog</class>
+ <widget class="QWidget" name="multiInstallDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>5</y>
+     <width>500</width>
+     <height>350</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>安装位置</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>15</y>
+      <width>300</width>
+      <height>340</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="pixmap">
+     <pixmap resource="../qfi.qrc">:/qfi/images/devicepos.png</pixmap>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>10</y>
+      <width>150</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>IMU</string>
+    </property>
+    <widget class="QLabel" name="label_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X轴</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Y轴</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Z轴</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit__IMU_POSSETX">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit__IMU_POSSETY">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit__IMU_POSSETZ">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton__IMU_POSSET">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>50</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>设置</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_IMU_POSASK">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>100</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>查询</string>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>180</y>
+      <width>150</width>
+      <height>160</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>GPS</string>
+    </property>
+    <widget class="QLabel" name="label_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>30</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>X轴</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Y轴</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="label_7">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>130</y>
+       <width>20</width>
+       <height>20</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Z轴</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_GPS_POSSETX">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_GPS_POSSETY">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>80</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="lineEdit_GPS_POSSETZ">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>130</y>
+       <width>60</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton__GPS_POSSET">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>50</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>设置</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton__GPS_POSASK">
+     <property name="geometry">
+      <rect>
+       <x>95</x>
+       <y>100</y>
+       <width>51</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>查询</string>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../qfi.qrc"/>
+ </resources>
+ <connections/>
+</ui>

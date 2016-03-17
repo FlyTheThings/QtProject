@@ -1,0 +1,794 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+	<style type="text/css">
+		body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+		#allmap{height:100%; width:100%;}
+	</style>
+	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=WtW5sgo5G9KUVfm5xKYEbPwF"></script>
+	<script src="http://libs.baidu.com/jquery/2.0.0/jquery.js"></script>
+	<script type="text/javascript" src="js/apiv2.0.min.js"></script>
+    <script type="text/javascript" src="js/AreaRestriction_min.js"></script>
+	<script type="text/javascript" src="js/DistanceTool_min.js"></script>
+	
+	
+	<title>百度地图自动航线</title>	
+	
+</head>
+<body>
+	<div id="allmap"></div>	
+</body>
+</html>
+<script type="text/javascript">
+	// 百度地图API功能
+	var map = new BMap.Map("allmap");
+	var point = new BMap.Point(116.404, 39.915);
+    var x_pi=3.14159265358979324 * 3000.0 / 180.0;
+	var PI=3.14159265358979324;
+	var myIcon = new BMap.Icon("airplane.png",new BMap.Size(24, 24));
+    var carMk = new BMap.Marker(point,{icon:myIcon});
+	map.addOverlay(carMk);	
+	var acpoint;
+	map.centerAndZoom(point, 15);
+	map.enableScrollWheelZoom();
+	map.disableDoubleClickZoom();
+	document.onmousewheel=function(evt){
+          evt=evt?evt:event;
+		  unautocenter();
+        }
+    map.addEventListener("dragging", unautocenter);
+	var mapType = new BMap.MapTypeControl({mapTypes: [BMAP_NORMAL_MAP,BMAP_SATELLITE_MAP],anchor: BMAP_ANCHOR_TOP_RIGHT});
+	map.addControl(mapType);
+	map.addControl(new BMap.ScaleControl());
+	var maxlon = map.getBounds().getNorthEast().lng;
+	var maxlat = map.getBounds().getNorthEast().lat;
+	var minlon = map.getBounds().getSouthWest().lng;
+	var minlat = map.getBounds().getSouthWest().lat;
+	var framemax=new BMap.Point;
+    var framemin=new BMap.Point;
+	var aclon=point.lng;
+	var aclat=point.lat;
+	var wppoinnt;
+	var latLngBounds;
+	var exlatLngBounds;
+	var frameBounds;  
+	var frame_have= true;
+	var initpoint   = false;
+	var flag_centre = true;
+	var auto_centre = true;
+	var timeline_centre=false
+	//var timmer=0;
+	var acount=0;
+    var wppoint=new Array();
+    var u=0;	
+    var opts = {
+	            position : point,                                 // 指定文本标注所在的地理位置
+	            offset   : new BMap.Size(0, 0)    //设置文本偏移量
+	                              };				   
+    movetext = new BMap.Label("右击结束", opts);																		 
+    movetext.setStyle({
+	 		          color : "red",
+			          fontSize : "12px",
+			          height : "20px",
+			          lineHeight : "20px",
+			          fontFamily:"微软雅黑"
+		             });
+	map.addOverlay(movetext);
+	movetext.hide();
+	var marker=new Array();
+	var marker_m=0;
+	var marker_i=0;				 	
+	var frame = new BMap.Polyline([	    
+	], {strokeColor:"yellow", strokeWeight:7, strokeOpacity:0.5});   //创建折线
+	var framepath = frame.getPath(); 
+	map.addOverlay(frame); 
+	var framelabel=new Array();
+	
+	var wp = new BMap.Polyline([	    
+	], {strokeColor:"red", strokeWeight:3, strokeOpacity:0.8});   //创建折线
+	var wppath = wp.getPath(); 
+	map.addOverlay(wp); 
+	
+	var pointspath = [];
+    var options = {
+            size: BMAP_POINT_SIZE_SMALL,
+            shape: BMAP_POINT_SHAPE_CIRCLE,
+            color: 'red'
+        }
+    var points = new BMap.PointCollection(pointspath, options);  // 初始化PointCollection
+	map.addOverlay(points);
+	
+	var move = new BMap.Polyline([	    
+	], {strokeColor:"red", strokeWeight:3, strokeOpacity:0.3});   //创建折线
+	var movepath = move.getPath(); 	
+	map.addOverlay(move); 
+		
+	var airline = new BMap.Polyline([
+	], {strokeColor:"red", strokeWeight:5, strokeOpacity:0.5});   //创建折线
+	var linepath = airline.getPath();
+	map.addOverlay(airline); 
+	
+	
+	var timeline = new BMap.Polyline([
+	], {strokeColor:"blue", strokeWeight:3, strokeOpacity:0.5});   //创建折线
+	var timepath = timeline.getPath();
+	var gpspath = [];
+	var psipath = [];
+	var acpsi;
+	map.addOverlay(timeline); 
+	
+	var marker = new BMap.Marker(); 
+	var myDis =  new BMapLib.DistanceTool(map);	
+	var menu = new BMap.ContextMenu();
+	
+    var txtMenuItem = [
+		{
+			text:'放置标记',
+			callback:function(){ putmarker();marker_i++;
+			
+			}
+		},
+		{
+			text:'经纬度获取',
+			
+			callback:function(){//alert("当前的经纬度："+acpoint.lng+","+acpoint.lat);
+							     var lonlat_GCJ=bdtogcj(acpoint.lat, acpoint.lng);
+							     var lonlat_true=gcjtowgs(lonlat_GCJ.lat, lonlat_GCJ.lon);
+								 alert("当前的经纬度："+lonlat_true.lon+","+lonlat_true.lat);
+								}
+		},
+				
+		{
+			text:'拾取航点',
+	  		callback:function(){ if(u==0){map.addEventListener("click",drawwp);			                     
+	                                      map.addEventListener("rightclick",enddraw);}
+								 
+								}	        
+                     		   			 
+		}
+	];
+   
+	for(var i=0; i < txtMenuItem.length; i++){
+		menu.addItem(new BMap.MenuItem(txtMenuItem[i].text,txtMenuItem[i].callback,100));
+	}
+	map.addContextMenu(menu);
+	map.addEventListener("rightclick", function(e){acpoint=e.point;});
+	
+   function putmarker(){	
+	        marker[marker_i] = new BMap.Marker(acpoint);  // 创建标注
+	        map.addOverlay(marker[marker_i]);               // 将标注添加到地图中
+            marker[marker_i].addEventListener("click", function(e){ 
+			for(var idx=0;idx<marker_i;idx++)  {
+			                                         var point=e.target.getPosition();
+													 var p=marker[idx].getPosition();													   
+			                                         if(point.lng==p.lng) m=idx;
+			                                    }       
+	        var opts = {
+	                  width : 200,     // 信息窗口宽度
+	                  height: 100,     // 信息窗口高度
+	                  title : "标记信息" , // 信息窗口标题
+	                   };
+			var html = [];
+			html.push('<a href="#"></a>');	
+            html.push('<input type="button" name="btnOK" onclick="deletemaker()" value="删除">&nbsp;&nbsp;');  
+		    var lonlat_GCJ=bdtogcj(e.target.getPosition().lat,e.target.getPosition() .lng);
+			var lonlat_true=gcjtowgs(lonlat_GCJ.lat, lonlat_GCJ.lon);			          		   
+		    var info = new BMap.InfoWindow(html.join("标注坐标："+lonlat_true.lon+","+lonlat_true.lat),
+			            {offset:new BMap.Size(0,0),width: 220});
+		    map.openInfoWindow(info,e.target.getPosition());}); 
+		  
+   }
+   
+   function deletemaker()
+   {
+      map.removeOverlay(marker[m]);
+   }
+   
+   function drawwp(e)
+   {  
+	  wppath.push(e.point);
+	  wp.setPath(wppath);
+	  
+	  var opts = {
+	               position : e.point,    // 指定文本标注所在的地理位置
+	               offset   : new BMap.Size(0, 10)    //设置文本偏移量
+	                              };
+				   
+
+	  wppoint[u] = new BMap.Label(wppath.length, opts);																		 
+	  wppoint[u].setStyle({
+			          color : "red",
+			          fontSize : "12px",
+			           height : "20px",
+			           lineHeight : "20px",
+			           fontFamily:"微软雅黑"
+		             });
+	
+	 map.addOverlay(wppoint[u]);          
+	 pointspath.push(e.point);
+	 points.setPoints(pointspath);						       
+	 u++;
+	 if(wppath.length==1) {	 map.addEventListener("mousemove",drawmove);                  
+	                         wppoint[0].setContent("1：起点\n单击以闭合"); 
+					   	     wppoint[0].addEventListener("click",closeloop);
+				          }
+	  
+	}
+
+    function closeloop(){
+	     map.removeEventListener("rightclick",enddraw);
+         map.removeEventListener("click", drawwp);
+		 map.removeEventListener("mousemove",drawmove);
+		 wppoint[0].removeEventListener("click",closeloop);	 
+		 movetext.hide();
+		 wppath.push(wppath[0]); 
+         wp.setPath(wppath);
+		 movepath.pop();
+	     movepath.pop();
+	     move.setPath(movepath);
+		 var opts = {
+	                 position : wppath[0],    // 指定文本标注所在的地理位置
+	                 offset   : new BMap.Size(-35, 10)    //设置文本偏移量
+	                              };		 		
+		 wppoint[0].setContent("1起点"+"("+wppath.length+"终点）单击以保存航路");
+		 wppoint[u] = new BMap.Label("清除", opts);																		 
+	     wppoint[u].setStyle({
+			           color : "red",
+			           fontSize : "12px",
+			           height : "20px",
+			           lineHeight : "20px",
+			           fontFamily:"微软雅黑"
+		             });
+	
+	     map.addOverlay(wppoint[u]); 
+		 wppoint[0].addEventListener("click",wpsavetext);	
+		 wppoint[u].addEventListener("click",cleardraw);	
+	}
+		
+	function drawmove(e){
+	   
+		movepath[0]=wppath[wppath.length-1];		
+		movepath[1]=e.point;				
+		move.setPath(movepath);
+		movetext.setPosition(e.point);	
+		movetext.setOffset(new BMap.Size(15, 15))	
+	    movetext.show(); 
+		                             
+	}
+	
+	function enddraw(){
+		if(u>0){
+		        map.removeEventListener("click",drawwp);
+		        map.removeEventListener("mousemove",drawmove);
+		        movetext.hide();		
+		        wppoint[wppath.length-1].setContent(wppath.length+"终点\n单击以保存航路");	
+		        var opts = {
+	                position : wppath[wppath.length-1],    // 指定文本标注所在的地理位置
+	                offset   : new BMap.Size(-35, 10)    //设置文本偏移量
+	                              };		 		
+		        wppoint[0].setContent("1起点"+"("+wppath.length+"终点）单击以保存航路");
+		        wppoint[u] = new BMap.Label("清除", opts);																		 
+	            wppoint[u].setStyle({
+			           color : "red",
+			           fontSize : "12px",
+			           height : "20px",
+			           lineHeight : "20px",
+			           fontFamily:"微软雅黑"
+		             });
+	
+	            map.addOverlay(wppoint[u]);
+				wppoint[u].addEventListener("click",cleardraw); 					
+		        wppoint[0].setContent("1\n起点");	    
+		        movepath.pop();
+	            movepath.pop();
+	            move.setPath(movepath);			    
+	            map.removeEventListener("rightclick",enddraw);
+		        wppoint[0].removeEventListener("click",closeloop);
+		        wppoint[wppath.length-1].addEventListener("click",wpsavetext);
+		}		
+			
+	}
+	
+	function cleardraw(){
+	    var len= wppath.length;
+	    for(var i=0 ;i<len;i++)		          
+		   {  wppath.pop();
+			  pointspath.pop();
+			  
+			  map.removeOverlay(wppoint[i]);
+			  points.clear();                           	
+		   }
+		  map.removeOverlay(wppoint[i]);																									
+		 movepath.pop();
+	     movepath.pop();
+	     move.setPath(movepath);			  
+		 u=0;
+		 wp.setPath(wppath);	    
+	}
+	
+	function wpsavetext(){
+	    toqt();
+		helpmessage();
+	}
+	
+	function helpmessage(){
+	    alert("航线保存成功");
+	}
+	function plane_center(){ 
+		timeline_centre=false;
+	    flag_centre=false;
+		auto_centre=false;
+		var zoom =map.getZoom() ;
+		var bound =map.getBounds();
+        map.centerAndZoom(new BMap.Point(aclon, aclat), zoom);
+   
+	}
+	
+	function plane_follow(){ 
+            flag_centre=true;
+			auto_centre=true;
+            timeline_centre=false;
+		
+			
+   
+	}
+	
+	function line_center(){
+		flag_centre=false;
+		timeline_centre=true;
+		auto_centre=true;
+		Layout();
+		
+	}
+	
+	function frame_center(){
+		flag_centre=false;
+		auto_centre=false;
+		timeline_centre=false;
+		map.setViewport(frameBounds);
+		acount=0;
+		
+	}
+	
+	function unautocenter(){
+	   auto_centre=false;
+	   }
+	
+	function autocenter(){
+	   auto_centre=true;
+	   }
+	
+	function hide_frame(){ 
+	    frame_have=false;
+		frame.hide();
+	    for(var i=0 ;i<framelabel.length;i++)
+		  {
+			 framelabel[i].hide();
+		  } 		
+				            
+	}
+	
+	function hide_line(){ 
+		airline.hide();			            
+	}
+	
+	function hide_timeline(){ 
+		timeline.hide();			            
+	}
+	
+	function show_frame(){ 
+		frame_have=true;
+		frame.show();
+	    for(var i=0 ;i<framelabel.length;i++)
+		  {
+			 framelabel[i].show();
+		  } 					            
+	}
+	
+	function show_linepath(){ 
+		airline.show();	            
+	}
+	
+	function show_timeline(){ 
+		timeline.show();			            
+	}
+	function clear_frame(){
+	    frame_have = false;
+
+	   var flen = framepath.length;
+	   for(var i=flen-1;i>-1;i--)
+	   {
+		     framepath.pop();
+			 map.removeOverlay(framelabel[i]);
+			 framelabel.pop();
+		  } 
+	   frame.setPath(framepath);   
+	}
+    function clear_line(){
+        var llen = linepath.length;
+		  for(var i=0 ;i<llen;i++)
+		  {
+		     linepath.pop();
+		  }     
+		 airline.setPath(linepath);    
+	}
+   function clear_timepath(){
+        var tlen = timepath.length;
+		 for(var i=0 ;i<tlen;i++)
+		  {
+		     timepath.pop();
+		  }     
+		  timeline.setPath(timepath);    
+	}
+	function setevaluate(){
+	    myDis.open();  //开启鼠标测距
+	}
+	
+	function setfinal(lon,lat){
+	     // 创建标注
+		marker.setPosition(new BMap.Point(lon, lat)) ;
+	    map.addOverlay(marker);               // 将标注添加到地图中
+	    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+	}
+	
+	function Findmaxmin(lon,lat){	
+	      if(initpoint==true)
+	      { 
+	         if(lon>maxlon)  maxlon=lon;		  
+		     if(lat>maxlat)  maxlat=lat; 	  
+		     if(lon<minlon)  minlon=lon;	
+             if(lat<minlat)  minlat=lat;
+		  }
+		  else
+		  {
+		     maxlon=lon;
+			 maxlat=lat;
+			 minlon=lon;
+			 minlat=lat;
+		  }
+		  var len_ini = GEO_POS2Len(maxlon,maxlat,minlon,minlat);
+		 if(len_ini<=400)
+		  {
+		      var minpoint = GEO_XY2POS(aclon,aclat,-150,-150);
+			  var maxpoint = GEO_XY2POS(aclon,aclat,150,150);
+			  latLngBounds =  new BMap.Bounds(minpoint,maxpoint);	      
+		  }
+		  else if(flag_centre==false&timeline_centre==true)
+          {
+		      latLngBounds =  new BMap.Bounds(new BMap.Point(minlon,minlat),new BMap.Point(maxlon,maxlat));
+		  }
+		  else if(flag_centre==true&timeline_centre==false&auto_centre==true)
+		  {
+		     // var x1 = GEO_POS2X(minlon,minlat,aclon,aclat);
+			 // var y1 = GEO_POS2Y(minlon,minlat,aclon,aclat);
+			  //var x2 = GEO_POS2X(maxlon,maxlat,aclon,aclat);
+			 // var y2 = GEO_POS2Y(maxlon,maxlat,aclon,aclat);
+			 // var x3,y3;
+			  //if(x1>x2) x3=x1;
+			 // else      x3=x2;			  
+			 // if(y1>y2) y3=y1;
+			 // else      y3=y2;
+			 // var minpoint = GEO_XY2POS(aclon,aclat,-1.0*x3,-1.0*y3);
+			//  var maxpoint = GEO_XY2POS(aclon,aclat,x3,y3);
+			//  latLngBounds =  new BMap.Bounds(minpoint,maxpoint);			  
+		        
+			map.centerAndZoom(new BMap.Point(aclon,aclat), 17);
+		  }
+		
+    }
+	
+	function Findframemaxmin(lon,lat){
+		  if(acount==0){
+		          framemax.lng = lon;
+	              framemax.lat = lat;
+	              framemin.lng = lon;
+	              framemin.lat = lat;
+				 
+				  }
+		  
+		  if(lon>framemax.lng)  framemax.lng=lon;		  
+		  if(lat>framemax.lat)  framemax.lat=lat; 	  
+		  if(lon<framemin.lng)  framemin.lng=lon;	
+          if(lat<framemin.lat)  framemin.lat=lat;
+		  
+		  frameBounds=new BMap.Bounds(framemin,framemax);
+	         
+	}
+	
+	function Layout(){
+		 
+		   map.setViewport(latLngBounds);
+		   
+	  
+	 }
+	 
+	 function setframepath(lon,lat){
+	      frame_have=true;
+		  framepath.push(new BMap.Point(lon,lat));	  
+		  aclon=lon;
+		  aclat=lat;
+		  initpoint = true;	
+          Findframemaxmin(lon,lat);
+		  acount++;
+ 
+
+		  
+	 }
+	 
+	 function setlinepath(lon,lat){
+	      linepath.push(new BMap.Point(lon,lat));
+	      airline.setPath(linepath);
+		  Findmaxmin(lon,lat);
+		  Layout();
+		  initpoint = true;
+	 }
+	 
+	 function settimepath(lon,lat,psi){	          
+	          gpspath.push(new BMap.Point(lon,lat));
+			  psipath.push(psi);
+	 }
+	 
+	 function clearpath(){
+	      var flen = framepath.length;
+		  for(var i=0 ;i<flen;i++)
+		  {
+		     framepath.pop();
+		  }     
+		  frame.setPath(framepath); 
+		  
+		  var llen = linepath.length;
+		  for(var i=0 ;i<llen;i++)
+		  {
+		     linepath.pop();
+		  }     
+		  airline.setPath(linepath); 
+		  
+		  var tlen = timepath.length;
+		  for(var i=0 ;i<tlen;i++)
+		  {
+		     timepath.pop();
+		  }     
+		  timeline.setPath(timepath); 
+		  map.removeOverlay(marker);
+		  
+		  initpoint = false;  
+		  maxlon=miblon=maxlat=minlat=0;
+		  map.setCenter(new BMap.Point(aclon,aclat));
+		  
+		  
+	 
+	 }
+	 
+	 function GEO_POS2X( xlon, xlat, lon, lat)
+     {
+        var tmp = (xlat + lat) / 114.5916;
+        xlen = Math.abs((111412.876*Math.cos(tmp) - 93.5030*Math.cos(3.0*tmp)) * (lon - xlon));
+		return xlen;
+     }
+	 
+	 function GEO_POS2Y( xlon, xlat, lon, lat)
+     {
+        var tmp = (xlat + lat) / 114.5916;
+        ylen = Math.abs((111132.952               - 559.849*Math.cos(2.0*tmp)) * (lat - xlat));		
+		return ylen;
+     }
+	
+	 function GEO_POS2Len( xlon, xlat, lon, lat)
+     {
+        var tmp = (xlat + lat) / 114.5916;
+
+        xlen = Math.abs((111412.876*Math.cos(tmp) - 93.5030*Math.cos(3.0*tmp)) * (lon - xlon));
+        ylen = Math.abs((111132.952               - 559.849*Math.cos(2.0*tmp)) * (lat - xlat));
+		var len = Math.sqrt(xlen*xlen+ylen*ylen);
+		return len;
+     }
+	 function GEO_XY2POS ( lon_ref,  lat_ref,  x,  y)
+     {
+          var R_lat=  (6378165.0*Math.cos(lat_ref/57.3));
+
+         var lon_get = lon_ref + (x/     R_lat)*57.3;
+         var lat_get = lat_ref + (y/6378165.0)*57.3;
+		 var latlon_get =  new BMap.Point(lon_get,lat_get);
+		 return latlon_get;
+     }
+	 
+	 function  TFM_Psi2Psi ( angle)
+     {
+          var  tmp_angle;
+
+          if      (angle > 180.0)  tmp_angle = angle - 360.0;
+          else if (angle <-180.0)  tmp_angle = angle + 360.0;
+          else                      tmp_angle = angle;
+    
+          return (tmp_angle);
+     }
+	 
+	 function GEO_LP2POS( lonA, latA, len, psi)
+     {  
+         var x=0.0,y=0.0;
+
+         x=len*Math.sin(psi/57.3);
+         y=len*Math.cos(psi/57.3);
+         var lonlat = GEO_XY2POS(lonA,latA,x,y);
+
+         return lonlat;
+     }
+	 
+	 function addlabel()
+	 {
+	    var length = framepath.length;
+		var i=0;
+
+	   while(i<length)
+	 	 {
+
+		     var opts = {
+	                 position : new BMap.Point(framepath[i].lng,framepath[i].lat),    // 指定文本标注所在的地理位置
+	                 offset   : new BMap.Size(0, 0)    //设置文本偏移量
+	               };
+				   
+	         framelabel[i] = new BMap.Label(i+1, opts);  // 创建文本标注对象
+		     framelabel[i].setStyle({
+			 color : "red",
+			 fontSize : "12px",
+			 height : "20px",
+			 lineHeight : "20px",
+			 fontFamily:"微软雅黑"
+		     });			  
+		     map.addOverlay(framelabel[i]); 
+			 i++;
+		}
+		
+	 }
+	 
+   function toqt()
+   {
+     var lng=new Array();
+	 var lat=new Array();
+	 var len=0;
+	 len=wppath.length;
+	 for(var i=0;i<wppath.length;i++)
+	                      {
+						    var lonlat_true=bdtogcj(wppath[i].lat, wppath[i].lng);
+							lonlat_true=gcjtowgs(lonlat_true.lat, lonlat_true.lon);
+						    lng[i]=lonlat_true.lon.toString();
+							lat[i]=lonlat_true.lat.toString();
+							mainwindow.slot_fromjava(lng[i],lat[i]);	
+						  }
+				  
+   }
+   
+   function frametrans()
+   {
+	 var convertor = new BMap.Convertor();
+     convertor.translate(framepath, 1, 5, translateCallback)       
+   }
+   
+   translateCallback = function (data){
+	  
+      if(data.status === 0) {
+        for (var i = 0; i < data.points.length; i++) {
+		     framepath[i]=data.points[i]
+        }
+      }
+	  frame.setPath(framepath);
+      frame.show();	
+	  addlabel();
+	  frame_center();
+    }
+	
+   setInterval(function(){
+     if(gpspath.length>0){
+	    var convertor = new BMap.Convertor();
+        var pointArr = [];
+        pointArr.push(gpspath[gpspath.length-1]);
+		acpsi=psipath[gpspath.length-1];
+        convertor.translate(pointArr, 1, 5, translateCallback_time)
+	 }
+    }, 100);
+
+    translateCallback_time = function (data){
+      if(data.status === 0) {
+        timepath.push(data.points[0]);
+	    initpoint = true;
+		timeline.setPath(timepath);
+	    aclon=data.points[0].lng;
+	    aclat=data.points[0].lat;			  
+		Findmaxmin(aclon,aclat);
+	    carMk.setPosition(data.points[0]);
+	    carMk.setRotation(acpsi);					
+      }
+    }
+	
+    function bdtogcj(bdLat, bdLon) {
+        var x = bdLon - 0.0065, y = bdLat - 0.006;  
+        var z = Math.sqrt(x * x + y * y) - 0.00002 * Math.sin(y * this.x_pi);  
+        var theta = Math.atan2(y, x) - 0.000003 * Math.cos(x * this.x_pi);  
+        var gcjLon = z * Math.cos(theta);  
+        var gcjLat = z * Math.sin(theta);
+        return {'lat' : gcjLat, 'lon' : gcjLon};
+    }
+	
+	function gcjtowgs(gcjLat, gcjLon) {
+        var initDelta = 0.01;
+        var threshold = 0.000000001;
+        var dLat = initDelta, dLon = initDelta;
+        var mLat = gcjLat - dLat, mLon = gcjLon - dLon;
+        var pLat = gcjLat + dLat, pLon = gcjLon + dLon;
+        var wgsLat, wgsLon, i = 0;
+        while (1) {
+            wgsLat = (mLat + pLat) / 2;
+            wgsLon = (mLon + pLon) / 2;
+            var tmp = gcj_encrypt(wgsLat, wgsLon)
+            dLat = tmp.lat - gcjLat;
+            dLon = tmp.lon - gcjLon;
+            if ((Math.abs(dLat) < threshold) && (Math.abs(dLon) < threshold))
+                break;
+ 
+            if (dLat > 0) pLat = wgsLat; else mLat = wgsLat;
+            if (dLon > 0) pLon = wgsLon; else mLon = wgsLon;
+ 
+            if (++i > 10000) break;
+        }
+        return {'lat': wgsLat, 'lon': wgsLon};
+    }
+	
+	function gcj_encrypt(wgsLat, wgsLon) {
+        if (this.outOfChina(wgsLat, wgsLon))
+            return {'lat': wgsLat, 'lon': wgsLon};
+ 
+        var d = this.delta(wgsLat, wgsLon);
+        return {'lat' : wgsLat + d.lat,'lon' : wgsLon + d.lon};
+    }
+	
+	function outOfChina(lat, lon) {
+        if (lon < 72.004 || lon > 137.8347)
+            return true;
+        if (lat < 0.8293 || lat > 55.8271)
+            return true;
+        return false;
+    }
+	
+   function delta(lat, lon) {
+        // Krasovsky 1940
+        //
+        // a = 6378245.0, 1/f = 298.3
+        // b = a * (1 - f)
+        // ee = (a^2 - b^2) / a^2;
+        var a = 6378245.0; //  a: 卫星椭球坐标投影到平面地图坐标系的投影因子。
+        var ee = 0.00669342162296594323; //  ee: 椭球的偏心率。
+        var dLat = this.transformLat(lon - 105.0, lat - 35.0);
+        var dLon = this.transformLon(lon - 105.0, lat - 35.0);
+        var radLat = lat / 180.0 * this.PI;
+        var magic = Math.sin(radLat);
+        magic = 1 - ee * magic * magic;
+        var sqrtMagic = Math.sqrt(magic);
+        dLat = (dLat * 180.0) / ((a * (1 - ee)) / (magic * sqrtMagic) * this.PI);
+        dLon = (dLon * 180.0) / (a / sqrtMagic * Math.cos(radLat) * this.PI);
+        return {'lat': dLat, 'lon': dLon};
+    }
+	
+   function transformLat(x, y) {
+        var ret = -100.0 + 2.0 * x + 3.0 * y + 0.2 * y * y + 0.1 * x * y + 0.2 * Math.sqrt(Math.abs(x));
+        ret += (20.0 * Math.sin(6.0 * x * this.PI) + 20.0 * Math.sin(2.0 * x * this.PI)) * 2.0 / 3.0;
+        ret += (20.0 * Math.sin(y * this.PI) + 40.0 * Math.sin(y / 3.0 * this.PI)) * 2.0 / 3.0;
+        ret += (160.0 * Math.sin(y / 12.0 * this.PI) + 320 * Math.sin(y * this.PI / 30.0)) * 2.0 / 3.0;
+        return ret;
+    }
+	
+   function transformLon(x, y) {
+        var ret = 300.0 + x + 2.0 * y + 0.1 * x * x + 0.1 * x * y + 0.1 * Math.sqrt(Math.abs(x));
+        ret += (20.0 * Math.sin(6.0 * x * this.PI) + 20.0 * Math.sin(2.0 * x * this.PI)) * 2.0 / 3.0;
+        ret += (20.0 * Math.sin(x * this.PI) + 40.0 * Math.sin(x / 3.0 * this.PI)) * 2.0 / 3.0;
+        ret += (150.0 * Math.sin(x / 12.0 * this.PI) + 300.0 * Math.sin(x / 30.0 * this.PI)) * 2.0 / 3.0;
+        return ret;
+    }
+
+
+
+
+		
+
+</script>

@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>centerWidget</class>
+ <widget class="QWidget" name="centerWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1097</width>
+    <height>701</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>1097</width>
+    <height>701</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QStackedWidget" name="stackedWidget">
+   <property name="geometry">
+    <rect>
+     <x>186</x>
+     <y>0</y>
+     <width>881</width>
+     <height>595</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>827</width>
+     <height>595</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="currentIndex">
+    <number>-1</number>
+   </property>
+  </widget>
+  <widget class="QScrollArea" name="scrollArea">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>180</width>
+     <height>697</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>180</width>
+     <height>0</height>
+    </size>
+   </property>
+   <property name="maximumSize">
+    <size>
+     <width>180</width>
+     <height>16777215</height>
+    </size>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>9</pointsize>
+    </font>
+   </property>
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="QWidget" name="scrollAreaWidgetContents_2">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>178</width>
+      <height>695</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_18">
+     <item row="3" column="0">
+      <widget class="QPushButton" name="pushButton_tiltset">
+       <property name="maximumSize">
+        <size>
+         <width>210</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>十字盘配置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/HE32.png</normaloff>:/qfi/images/HE32.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="10" column="0">
+      <spacer name="verticalSpacer">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>20</width>
+         <height>40</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_install">
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>设备安装</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/set.png</normaloff>:/qfi/images/set.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="7" column="0">
+      <widget class="QPushButton" name="pushButton_controlset">
+       <property name="maximumSize">
+        <size>
+         <width>210</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>控制律配置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/ask.png</normaloff>:/qfi/images/ask.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="8" column="0">
+      <widget class="QPushButton" name="pushButton_spayset">
+       <property name="maximumSize">
+        <size>
+         <width>210</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>喷洒系统配置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/simulation.png</normaloff>:/qfi/images/simulation.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="9" column="0">
+      <widget class="QPushButton" name="pushButton_selflyset">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>150</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>9</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>自驾参数配置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/airplane.png</normaloff>:/qfi/images/airplane.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="pushButton_ailset">
+       <property name="maximumSize">
+        <size>
+         <width>210</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>副翼/锁尾配置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/donate.png</normaloff>:/qfi/images/donate.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton_rcset">
+       <property name="maximumSize">
+        <size>
+         <width>210</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>RC配置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/remote1.png</normaloff>:/qfi/images/remote1.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="pushButton_rpmset">
+       <property name="maximumSize">
+        <size>
+         <width>210</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>RPM/罗盘配置</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/sensors.png</normaloff>:/qfi/images/sensors.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>50</width>
+         <height>30</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../qfi.qrc"/>
+ </resources>
+ <connections/>
+</ui>

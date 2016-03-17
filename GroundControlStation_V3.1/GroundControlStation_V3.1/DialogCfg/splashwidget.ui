@@ -1,0 +1,325 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QSplashWidget</class>
+ <widget class="QWidget" name="QSplashWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>811</width>
+    <height>598</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox_99">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>250</y>
+     <width>551</width>
+     <height>171</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>控制设定</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_31">
+    <item row="0" column="4">
+     <widget class="QLabel" name="label_288">
+      <property name="text">
+       <string>米</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="4">
+     <widget class="QLabel" name="label_289">
+      <property name="text">
+       <string>米/秒</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_SPRAYP">
+      <property name="text">
+       <string>  比例：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_285">
+      <property name="text">
+       <string>  药量：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="5">
+     <widget class="QPushButton" name="pushButton_SPRAYSET">
+      <property name="text">
+       <string>设置</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="6">
+     <widget class="QPushButton" name="pushButton_SPRAYASK">
+      <property name="text">
+       <string>查询</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_286">
+      <property name="text">
+       <string>最低速：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="3">
+     <widget class="QLineEdit" name="lineEdit_SPRAY_RANGE">
+      <property name="text">
+       <string>N/A</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1" colspan="3">
+     <widget class="QLineEdit" name="lineEdit_SPRAY_LOW_V">
+      <property name="text">
+       <string>N/A</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="4">
+     <widget class="QLabel" name="label_287">
+      <property name="text">
+       <string>毫升/亩</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_152">
+      <property name="text">
+       <string>  喷幅：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="3">
+     <widget class="QLineEdit" name="lineEdit_SPRAY_AVE">
+      <property name="text">
+       <string>N/A</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_SPRAYI">
+      <property name="text">
+       <string>  积分：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1" colspan="3">
+     <widget class="QDoubleSpinBox" name="doubleSpinBox_SPRAYP"/>
+    </item>
+    <item row="4" column="1" colspan="3">
+     <widget class="QDoubleSpinBox" name="doubleSpinBox_SPRAYI"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_39">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>20</y>
+     <width>551</width>
+     <height>162</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>喷洒系统测试</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_17">
+    <item row="4" column="3">
+     <widget class="QPushButton" name="pushButton_SPRAY_VSET">
+      <property name="text">
+       <string>查询</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_142">
+      <property name="text">
+       <string>  输入：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1" colspan="8">
+     <widget class="QProgressBar" name="progressBar_SPRAY_INPUT">
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="format">
+       <string>%v</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_143">
+      <property name="text">
+       <string>  输出：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1" colspan="8">
+     <widget class="QProgressBar" name="progressBar_SPRAY_OUTPUT">
+      <property name="minimum">
+       <number>-100</number>
+      </property>
+      <property name="value">
+       <number>0</number>
+      </property>
+      <property name="format">
+       <string>%v</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="6">
+     <widget class="QLabel" name="label_145">
+      <property name="text">
+       <string>当前模式：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="7">
+     <widget class="QLineEdit" name="lineEdit_SPRAY_MODE">
+      <property name="text">
+       <string>N/A</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="6">
+     <widget class="QLabel" name="label_148">
+      <property name="text">
+       <string>当前速度：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="7">
+     <widget class="QLineEdit" name="lineEdit_SPRAY_V">
+      <property name="text">
+       <string>N/A</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="8">
+     <widget class="QLabel" name="label_150">
+      <property name="text">
+       <string>米/秒</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="0">
+     <widget class="QLabel" name="label_146">
+      <property name="text">
+       <string>速度设定：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="1">
+     <widget class="QLineEdit" name="lineEdit_SPRAY_VSET">
+      <property name="text">
+       <string>N/A</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="5">
+     <spacer name="horizontalSpacer_3">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>28</width>
+        <height>19</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="4" column="6">
+     <widget class="QLabel" name="label_149">
+      <property name="text">
+       <string>当前流量：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="7">
+     <widget class="QLineEdit" name="lineEdit_SPRAY_FLOW">
+      <property name="text">
+       <string>N/A</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="8">
+     <widget class="QLabel" name="label_151">
+      <property name="text">
+       <string>毫升/秒</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0" rowspan="2">
+     <widget class="QLabel" name="label_144">
+      <property name="text">
+       <string>模式选择：</string>
+      </property>
+     </widget>
+    </item>
+    <item row="4" column="2">
+     <widget class="QLabel" name="label_147">
+      <property name="text">
+       <string>米/秒</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QPushButton" name="pushButton_SPRAY_RUNMODE">
+      <property name="text">
+       <string>运行模式</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QPushButton" name="pushButton_SPRAY_TESTMODE">
+      <property name="text">
+       <string>测试模式</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

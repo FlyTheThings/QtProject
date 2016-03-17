@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>analogWidget</class>
+ <widget class="QWidget" name="analogWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>492</width>
+    <height>300</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label_7">
+   <property name="geometry">
+    <rect>
+     <x>167</x>
+     <y>19</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>偏移量</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_6">
+   <property name="geometry">
+    <rect>
+     <x>114</x>
+     <y>19</y>
+     <width>24</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>增益</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_5">
+   <property name="geometry">
+    <rect>
+     <x>55</x>
+     <y>19</y>
+     <width>48</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>采样电压</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>227</x>
+     <y>19</y>
+     <width>36</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>物理量</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>40</y>
+     <width>431</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>通道0：</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Vol_CH0"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Ratio_CH0"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Offset_CH0"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Val_CH0"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Set_CH0">
+      <property name="text">
+       <string>设置</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Ask_CH0">
+      <property name="text">
+       <string>查询</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>70</y>
+     <width>431</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_2">
+    <item>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>通道1：</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Vol_CH1"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Ratio_CH1"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Offset_CH1"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Val_CH1"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Set_CH1">
+      <property name="text">
+       <string>设置</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Ask_CH1">
+      <property name="text">
+       <string>查询</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>100</y>
+     <width>431</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_3">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>通道2：</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Vol_CH2"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Ratio_CH2"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Offset_CH2"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Val_CH2"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Set_CH2">
+      <property name="text">
+       <string>设置</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Ask_CH2">
+      <property name="text">
+       <string>查询</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>130</y>
+     <width>431</width>
+     <height>25</height>
+    </rect>
+   </property>
+   <layout class="QHBoxLayout" name="horizontalLayout_4">
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>通道3：</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Vol_CH3"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Ratio_CH3"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Offset_CH3"/>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="lineEdit_Val_CH3"/>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Set_CH3">
+      <property name="text">
+       <string>设置</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="pushButton_Ask_CH3">
+      <property name="text">
+       <string>查询</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

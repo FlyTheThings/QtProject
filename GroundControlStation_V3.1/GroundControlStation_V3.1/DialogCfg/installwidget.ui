@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QInstallWidget</class>
+ <widget class="QWidget" name="QInstallWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>826</width>
+    <height>585</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QLabel" name="label_31">
+   <property name="geometry">
+    <rect>
+     <x>220</x>
+     <y>492</y>
+     <width>16</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>0</y>
+     <width>381</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>安装方向</string>
+   </property>
+   <widget class="QGroupBox" name="groupBox_8">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>351</width>
+      <height>56</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>56</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>9</pointsize>
+      <weight>50</weight>
+      <italic>false</italic>
+      <bold>false</bold>
+      <underline>false</underline>
+      <strikeout>false</strikeout>
+      <stylestrategy>PreferDefault</stylestrategy>
+     </font>
+    </property>
+    <property name="title">
+     <string>IMU</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_3">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton__IMU_DIRSET_FRONT">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>前</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-up.svg</normaloff>:/qfi/images/go-up.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButton__IMU_DIRSET_BEHIND">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>后</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-down.svg</normaloff>:/qfi/images/go-down.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="pushButton__IMU_DIRSET_LEFT">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>左</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-previous.svg</normaloff>:/qfi/images/go-previous.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="pushButton__IMU_DIRSET_RIGHT">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>右</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-next.svg</normaloff>:/qfi/images/go-next.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_14">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>351</width>
+      <height>56</height>
+     </rect>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>16777215</width>
+      <height>56</height>
+     </size>
+    </property>
+    <property name="title">
+     <string>磁罗盘</string>
+    </property>
+    <layout class="QGridLayout" name="gridLayout_33">
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton__GPS_DIRSET_FRONT">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>前</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-up.svg</normaloff>:/qfi/images/go-up.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButton__GPS_DIRSET_BEHIND">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>后</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-down.svg</normaloff>:/qfi/images/go-down.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="2">
+      <widget class="QPushButton" name="pushButton__GPS_DIRSET_LEFT">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>左</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-previous.svg</normaloff>:/qfi/images/go-previous.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QPushButton" name="pushButton__GPS_DIRSET_RIGHT">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>右</string>
+       </property>
+       <property name="icon">
+        <iconset resource="../qfi.qrc">
+         <normaloff>:/qfi/images/go-next.svg</normaloff>:/qfi/images/go-next.svg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>20</width>
+         <height>20</height>
+        </size>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <widget class="QLabel" name="label_176">
+   <property name="geometry">
+    <rect>
+     <x>420</x>
+     <y>360</y>
+     <width>330</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>请选择IMU、GPS的类型，以及IMU的安装方向，并设置安装位置</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_DEVICE">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>0</y>
+     <width>411</width>
+     <height>321</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="../qfi.qrc">:/qfi/images/devicedir.png</pixmap>
+   </property>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>150</y>
+     <width>381</width>
+     <height>440</height>
+    </rect>
+   </property>
+   <property name="minimumSize">
+    <size>
+     <width>0</width>
+     <height>440</height>
+    </size>
+   </property>
+   <property name="title">
+    <string>安装位置</string>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_7">
+    <item row="1" column="2">
+     <widget class="QGroupBox" name="groupBox_7">
+      <property name="title">
+       <string>GPS</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_8">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_36">
+         <property name="text">
+          <string>X轴</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QLineEdit" name="lineEdit_GPS_POSSETX">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_37">
+         <property name="text">
+          <string>Y轴</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLineEdit" name="lineEdit_GPS_POSSETY">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_38">
+         <property name="text">
+          <string>Z轴</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QLineEdit" name="lineEdit_GPS_POSSETZ">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QPushButton" name="pushButton__GPS_POSSET">
+         <property name="text">
+          <string>设置</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/images/set1.png</normaloff>:/images/set1.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>22</width>
+           <height>22</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="pushButton__GPS_POSASK">
+         <property name="text">
+          <string>查询</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/images/ask.png</normaloff>:/images/ask.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>22</width>
+           <height>22</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>40</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="0">
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="title">
+       <string>IMU</string>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_9">
+       <item row="0" column="0">
+        <widget class="QLabel" name="label_33">
+         <property name="text">
+          <string>X轴</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="label_34">
+         <property name="text">
+          <string>Y轴</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLineEdit" name="lineEdit__IMU_POSSETY">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="label_35">
+         <property name="text">
+          <string>Z轴</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QLineEdit" name="lineEdit__IMU_POSSETZ">
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0" colspan="2">
+        <widget class="QPushButton" name="pushButton__IMU_POSSET">
+         <property name="text">
+          <string>设置</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/images/set.png</normaloff>:/images/set.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>22</width>
+           <height>22</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QPushButton" name="pushButton_IMU_POSASK">
+         <property name="text">
+          <string>查询</string>
+         </property>
+         <property name="icon">
+          <iconset>
+           <normaloff>:/images/ask.png</normaloff>:/images/ask.png</iconset>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>22</width>
+           <height>22</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QLineEdit" name="lineEdit__IMU_POSSETX">
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0" colspan="3">
+     <widget class="QLabel" name="label_32">
+      <property name="text">
+       <string/>
+      </property>
+      <property name="textFormat">
+       <enum>Qt::PlainText</enum>
+      </property>
+      <property name="pixmap">
+       <pixmap resource="../qfi.qrc">:/qfi/images/devicepos.png</pixmap>
+      </property>
+      <property name="scaledContents">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../qfi.qrc"/>
+ </resources>
+ <connections/>
+</ui>

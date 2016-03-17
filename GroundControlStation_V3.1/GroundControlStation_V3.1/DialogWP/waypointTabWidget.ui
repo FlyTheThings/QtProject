@@ -1,0 +1,897 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>QWaypointTabWidget</class>
+ <widget class="QTabWidget" name="QWaypointTabWidget">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>525</width>
+    <height>598</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>TabWidget</string>
+  </property>
+  <property name="currentIndex">
+   <number>0</number>
+  </property>
+  <widget class="QWidget" name="tab_1">
+   <attribute name="title">
+    <string>航线管理</string>
+   </attribute>
+   <widget class="QWidget" name="layoutWidget3">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>441</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="text">
+        <string>打开航线</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_3">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="text">
+        <string>清除航线</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_3">
+       <property name="text">
+        <string>保存航线</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_2">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>40</y>
+      <width>491</width>
+      <height>271</height>
+     </rect>
+    </property>
+    <property name="editTriggers">
+     <set>QAbstractItemView::NoEditTriggers</set>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>480</y>
+      <width>501</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>航线操作</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>130</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>航线查询</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>230</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>航线注入</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>330</x>
+       <y>50</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>航线删除</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>15</y>
+       <width>470</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_10">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>航线状态</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>当前航线</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_6"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_11">
+        <property name="text">
+         <string>航点数</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_2"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_4">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>350</y>
+      <width>501</width>
+      <height>111</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>航点编辑</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_addpoint">
+     <property name="geometry">
+      <rect>
+       <x>310</x>
+       <y>80</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>确定</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_clear">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>80</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>清空</string>
+     </property>
+    </widget>
+    <widget class="QWidget" name="layoutWidget1">
+     <property name="geometry">
+      <rect>
+       <x>11</x>
+       <y>50</y>
+       <width>481</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_7">
+      <item>
+       <widget class="QLabel" name="label_19">
+        <property name="text">
+         <string>速度</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_3">
+        <item>
+         <property name="text">
+          <string>空速</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>地速</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_21">
+        <property name="text">
+         <string>模式</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_4">
+        <item>
+         <property name="text">
+          <string>None</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>起飞</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>着陆</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>悬停回收</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>航点悬停</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>航点徘徊</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>过点飞</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>切入其他航线</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_20">
+        <property name="text">
+         <string> 附属信息</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_5"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_22">
+        <property name="text">
+         <string>附属信息</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_6"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="layoutWidget2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>481</width>
+       <height>25</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_8">
+      <item>
+       <widget class="QLabel" name="label_15">
+        <property name="text">
+         <string>航线</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_lineway"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_23">
+        <property name="text">
+         <string>航点</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_pointway"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_18">
+        <property name="text">
+         <string>高度</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_height">
+        <property name="maximumSize">
+         <size>
+          <width>41</width>
+          <height>20</height>
+         </size>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_16">
+        <property name="text">
+         <string>经纬度</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_lng"/>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_lat"/>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_getpoint">
+        <property name="maximumSize">
+         <size>
+          <width>21</width>
+          <height>23</height>
+         </size>
+        </property>
+        <property name="toolTip">
+         <string comment="拾取航点"/>
+        </property>
+        <property name="whatsThis">
+         <string comment="拾取航点"/>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset resource="../qfi.qrc">
+          <normaloff>:/qfi/images/cursor.png</normaloff>:/qfi/images/cursor.png</iconset>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="pushButton_deletee">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>319</y>
+      <width>75</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>删除</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="tab_2">
+   <attribute name="title">
+    <string>航线设计1</string>
+   </attribute>
+   <widget class="QGroupBox" name="groupBox_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>431</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>初始参数</string>
+    </property>
+    <widget class="QWidget" name="layoutWidget5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>411</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>航线号：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>基准经度：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_3"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="text">
+         <string>基准纬度：</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_4"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QWidget" name="layoutWidget9">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>470</y>
+      <width>401</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_9">
+     <item>
+      <widget class="QPushButton" name="pushButton_11">
+       <property name="text">
+        <string>航线预览</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_12">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_12">
+       <property name="text">
+        <string>航线清除</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_13">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_13">
+       <property name="text">
+        <string>航线保存</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacer_14">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QGroupBox" name="groupBox_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>70</y>
+      <width>431</width>
+      <height>151</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>设计参数</string>
+    </property>
+    <widget class="QWidget" name="horizontalLayoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>411</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_8">
+        <property name="text">
+         <string>航段</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSpinBox" name="spinBox_2"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_9">
+        <property name="text">
+         <string>距离</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_7"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_7">
+        <property name="text">
+         <string>航向</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_6"/>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_6">
+        <property name="text">
+         <string>高度</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_5"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>50</y>
+       <width>411</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_12">
+        <property name="text">
+         <string>速度模式</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox">
+        <item>
+         <property name="text">
+          <string>空速</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>地速</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_10">
+        <property name="text">
+         <string>附属信息</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_8"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_2">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>80</y>
+       <width>411</width>
+       <height>22</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_2">
+      <item>
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>飞行模式</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="comboBox_2">
+        <item>
+         <property name="text">
+          <string>None</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>起飞</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>着陆</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>悬停回收</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>航点悬停</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>航点徘徊</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>过点飞</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>切入其他航线</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_5">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>附属信息</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_9"/>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="horizontalLayoutWidget_4">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>110</y>
+       <width>411</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <item>
+       <widget class="QPushButton" name="pushButton_10">
+        <property name="text">
+         <string>添加</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_6">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_9">
+        <property name="text">
+         <string>删除</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer_7">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_8">
+        <property name="text">
+         <string>修改</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QTableWidget" name="tableWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>230</y>
+      <width>431</width>
+      <height>230</height>
+     </rect>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QWidget" name="tab_3">
+   <attribute name="title">
+    <string>航线设计2</string>
+   </attribute>
+   <widget class="QTreeWidget" name="treeWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>100</width>
+      <height>502</height>
+     </rect>
+    </property>
+    <column>
+     <property name="text">
+      <string>1</string>
+     </property>
+    </column>
+   </widget>
+   <widget class="QWidget" name="widget1" native="true">
+    <property name="geometry">
+     <rect>
+      <x>100</x>
+      <y>0</y>
+      <width>350</width>
+      <height>502</height>
+     </rect>
+    </property>
+    <widget class="QTableWidget" name="tableWidget_3">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>350</width>
+       <height>192</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../qfi.qrc"/>
+ </resources>
+ <connections/>
+</ui>
