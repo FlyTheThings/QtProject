@@ -66,7 +66,7 @@ void simDrone::send_heartbeat_msg() {
     quint16 checksum;
     quint8 payload[50];
     quint8 dataToSend[64];
-    quint8 length = 54, index;
+    quint8 length = 46, index;
 
     /*
     * get the uav flight heartbeat message.
@@ -78,19 +78,19 @@ void simDrone::send_heartbeat_msg() {
     frame_push_uint8_t(payload, 2, flightHBData.uasState);
     frame_push_uint8_t(payload, 3, flightHBData.plMode);
 
-    frame_push_double(payload, 4, flightHBData.lon);
-    frame_push_double(payload, 12, flightHBData.lat);
-    frame_push_float(payload, 20, flightHBData.alt);
+    frame_push_float(payload, 4, flightHBData.lon);
+    frame_push_float(payload, 8, flightHBData.lat);
+    frame_push_float(payload, 12, flightHBData.alt);
 
-    frame_push_float(payload, 24, flightHBData.vd);
-    frame_push_float(payload, 28, flightHBData.track);
-    frame_push_float(payload, 32, flightHBData.Hdot);
-    frame_push_float(payload, 36, flightHBData.psi);
-    frame_push_float(payload, 40, flightHBData.cpuRatio);
-    frame_push_float(payload, 44, flightHBData.voltCell);
-    frame_push_float(payload, 48, flightHBData.oilEng);
+    frame_push_float(payload, 16, flightHBData.vd);
+    frame_push_float(payload, 20, flightHBData.track);
+    frame_push_float(payload, 24, flightHBData.Hdot);
+    frame_push_float(payload, 28, flightHBData.psi);
+    frame_push_float(payload, 32, flightHBData.cpuRatio);
+    frame_push_float(payload, 36, flightHBData.voltCell);
+    frame_push_float(payload, 40, flightHBData.oilEng);
 
-    frame_push_uint16_t(payload, 52, flightHBData.flyTime);
+    frame_push_uint16_t(payload, 44, flightHBData.flyTime);
 
     for(index = 7; index<61; index++)
         dataToSend[index] = payload[index-7];
@@ -122,8 +122,8 @@ void simDrone::getHeartBeatMessage() {
     flightHBData.plMode = ui->uav_flymode->text().toUShort();
 
     flightHBData.alt = ui->uav_altitude->text().toFloat();
-    flightHBData.lon = ui->uav_longitude->text().toDouble();
-    flightHBData.lat = ui->uav_latitude->text().toDouble();
+    flightHBData.lon = ui->uav_longitude->text().toFloat();
+    flightHBData.lat = ui->uav_latitude->text().toFloat();
 
     flightHBData.vd = ui->uav_verticalspeed->text().toFloat();
     flightHBData.track = ui->uav_grouundspeed->text().toFloat();

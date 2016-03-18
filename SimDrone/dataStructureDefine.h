@@ -47,7 +47,7 @@ typedef struct __mavlink_status {
 typedef struct __heartbeat {
     quint8     uasInfo,  uasState;
     quint8     ctrlMode, plMode, vtMode, guidMode;
-    double     lon, lat;
+    float     lon, lat;
     float      vd, alt, Hdot, psi, track;
     quint16    flyTime;
     quint8     gpsState;

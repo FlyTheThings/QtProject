@@ -79,10 +79,10 @@ public:
         if (simDrone->objectName().isEmpty())
             simDrone->setObjectName(QStringLiteral("simDrone"));
         simDrone->setEnabled(true);
-        simDrone->resize(328, 303);
+        simDrone->resize(356, 307);
         groupBox = new QGroupBox(simDrone);
         groupBox->setObjectName(QStringLiteral("groupBox"));
-        groupBox->setGeometry(QRect(9, 244, 314, 51));
+        groupBox->setGeometry(QRect(9, 244, 341, 51));
         splitter = new QSplitter(groupBox);
         splitter->setObjectName(QStringLiteral("splitter"));
         splitter->setGeometry(QRect(20, 20, 111, 16));
@@ -105,10 +105,10 @@ public:
         splitter_2->addWidget(client_ip);
         groupBox_2 = new QGroupBox(simDrone);
         groupBox_2->setObjectName(QStringLiteral("groupBox_2"));
-        groupBox_2->setGeometry(QRect(9, 9, 314, 200));
+        groupBox_2->setGeometry(QRect(9, 9, 341, 201));
         splitter_3 = new QSplitter(groupBox_2);
         splitter_3->setObjectName(QStringLiteral("splitter_3"));
-        splitter_3->setGeometry(QRect(10, 20, 77, 51));
+        splitter_3->setGeometry(QRect(10, 20, 91, 51));
         splitter_3->setOrientation(Qt::Vertical);
         label_3 = new QLabel(splitter_3);
         label_3->setObjectName(QStringLiteral("label_3"));
@@ -118,7 +118,7 @@ public:
         splitter_3->addWidget(label_4);
         splitter_4 = new QSplitter(groupBox_2);
         splitter_4->setObjectName(QStringLiteral("splitter_4"));
-        splitter_4->setGeometry(QRect(160, 20, 66, 51));
+        splitter_4->setGeometry(QRect(170, 20, 81, 51));
         splitter_4->setOrientation(Qt::Vertical);
         label_5 = new QLabel(splitter_4);
         label_5->setObjectName(QStringLiteral("label_5"));
@@ -128,7 +128,7 @@ public:
         splitter_4->addWidget(label_6);
         splitter_5 = new QSplitter(groupBox_2);
         splitter_5->setObjectName(QStringLiteral("splitter_5"));
-        splitter_5->setGeometry(QRect(100, 20, 51, 51));
+        splitter_5->setGeometry(QRect(110, 20, 51, 51));
         splitter_5->setOrientation(Qt::Vertical);
         uav_type_num = new QLineEdit(splitter_5);
         uav_type_num->setObjectName(QStringLiteral("uav_type_num"));
@@ -142,7 +142,7 @@ public:
         splitter_5->addWidget(uav_state);
         splitter_6 = new QSplitter(groupBox_2);
         splitter_6->setObjectName(QStringLiteral("splitter_6"));
-        splitter_6->setGeometry(QRect(240, 20, 61, 51));
+        splitter_6->setGeometry(QRect(260, 20, 71, 51));
         splitter_6->setOrientation(Qt::Vertical);
         uav_contralmode = new QLineEdit(splitter_6);
         uav_contralmode->setObjectName(QStringLiteral("uav_contralmode"));
@@ -156,7 +156,7 @@ public:
         splitter_6->addWidget(uav_flymode);
         splitter_7 = new QSplitter(groupBox_2);
         splitter_7->setObjectName(QStringLiteral("splitter_7"));
-        splitter_7->setGeometry(QRect(10, 80, 291, 20));
+        splitter_7->setGeometry(QRect(10, 80, 321, 20));
         splitter_7->setOrientation(Qt::Horizontal);
         label_7 = new QLabel(splitter_7);
         label_7->setObjectName(QStringLiteral("label_7"));
@@ -176,7 +176,7 @@ public:
         splitter_7->addWidget(uav_latitude);
         splitter_8 = new QSplitter(groupBox_2);
         splitter_8->setObjectName(QStringLiteral("splitter_8"));
-        splitter_8->setGeometry(QRect(10, 110, 291, 21));
+        splitter_8->setGeometry(QRect(10, 110, 321, 21));
         splitter_8->setOrientation(Qt::Horizontal);
         label_10 = new QLabel(splitter_8);
         label_10->setObjectName(QStringLiteral("label_10"));
@@ -202,7 +202,7 @@ public:
         splitter_8->addWidget(uav_altitude);
         splitter_9 = new QSplitter(groupBox_2);
         splitter_9->setObjectName(QStringLiteral("splitter_9"));
-        splitter_9->setGeometry(QRect(10, 140, 291, 21));
+        splitter_9->setGeometry(QRect(10, 140, 321, 21));
         splitter_9->setOrientation(Qt::Horizontal);
         label_12 = new QLabel(splitter_9);
         label_12->setObjectName(QStringLiteral("label_12"));
@@ -227,7 +227,7 @@ public:
         splitter_9->addWidget(uav_flight_time);
         splitter_10 = new QSplitter(groupBox_2);
         splitter_10->setObjectName(QStringLiteral("splitter_10"));
-        splitter_10->setGeometry(QRect(10, 170, 291, 20));
+        splitter_10->setGeometry(QRect(10, 170, 321, 20));
         splitter_10->setOrientation(Qt::Horizontal);
         label_15 = new QLabel(splitter_10);
         label_15->setObjectName(QStringLiteral("label_15"));
