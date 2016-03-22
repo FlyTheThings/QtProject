@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frameDialog</class>
+ <widget class="QWidget" name="frameDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>350</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}
+
+</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/IY型共轴双桨六旋翼.PNG</normaloff>:/images/IY型共轴双桨六旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+   <property name="flat">
+    <bool>false</bool>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>10</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/Y型共轴双桨六旋翼.PNG</normaloff>:/images/Y型共轴双桨六旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_3">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>10</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/I型四旋翼.PNG</normaloff>:/images/I型四旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_4">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>10</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/X型四旋翼.PNG</normaloff>:/images/X型四旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_5">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>120</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/I型共轴双桨八旋翼.PNG</normaloff>:/images/I型共轴双桨八旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_6">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>120</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/X型共轴双桨八旋翼.PNG</normaloff>:/images/X型共轴双桨八旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_7">
+   <property name="geometry">
+    <rect>
+     <x>250</x>
+     <y>120</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/I型六旋翼.PNG</normaloff>:/images/I型六旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_8">
+   <property name="geometry">
+    <rect>
+     <x>370</x>
+     <y>120</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/V型六旋翼.PNG</normaloff>:/images/V型六旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_9">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>230</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/I型八旋翼.PNG</normaloff>:/images/I型八旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_10">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>230</y>
+     <width>100</width>
+     <height>100</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QPushButton:hover{background-color: rgb(255,160,200);}
+QPushButton:focus{background-color: rgb(255,49,80);}
+QPushButton{border-top-left-radius:10px;
+			border-top-right-radius:10px;
+			border-bottom-left-radius:10px;
+			border-bottom-right-radius:10px;
+			background-color: rgb(200,200,200)}</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="icon">
+    <iconset resource="../qfi.qrc">
+     <normaloff>:/images/V型八旋翼.PNG</normaloff>:/images/V型八旋翼.PNG</iconset>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>95</width>
+     <height>95</height>
+    </size>
+   </property>
+  </widget>
+ </widget>
+ <resources>
+  <include location="../qfi.qrc"/>
+ </resources>
+ <connections/>
+</ui>
